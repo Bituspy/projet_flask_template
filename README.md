@@ -44,5 +44,13 @@ CREATE TABLE employes (
 
 
 
- 
+
+ ![image](https://github.com/user-attachments/assets/e5b10663-573c-44ac-80f3-c9e59c266f8d)
+
+ ![image](https://github.com/user-attachments/assets/5830663a-50ee-43df-9e38-a0ba7953c7cf)
+
+![image](https://github.com/user-attachments/assets/e229faf8-edd6-4032-9edd-db6e495a7e1b)
+
+![image](https://github.com/user-attachments/assets/3ebc3111-9d04-425a-83f3-3d6623cf7fa7)
+
 
