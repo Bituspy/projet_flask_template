@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Liste des employés{% endblock %}
+
+{% block content %}
+<h2>Gestion des employés</h2>
+<a href="{{ url_for('ajouter_employe') }}" class="btn btn-success mb-3">Ajouter un employé</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Matricule</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Rôle</th>
+            <th>Téléphone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for employe in employes %}
+        <tr>
+            <td>{{ employe.matricule }}</td>
+            <td>{{ employe.firstname }}</td>
+            <td>{{ employe.lastname }}</td>
+            <td>{{ employe.email }}</td>
+            <td>{{ employe.role }}</td>
+            <td>{{ employe.phone }}</td>
+            <td>
+                <a href="{{ url_for('modifier_employe', matricule=employe.matricule) }}" class="btn btn-warning btn-sm">Modifier</a>
+                <a href="{{ url_for('supprimer_employe', matricule=employe.matricule) }}" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet employé ?')">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
