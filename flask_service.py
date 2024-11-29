@@ -33,14 +33,13 @@ class FlaskService(win32serviceutil.ServiceFramework):
         self.run()
 
     def run(self):
-        """ Run the Flask app using Waitress WSGI server """
+        """ Run the Flask app using Waitress WSGI server in a separate process """
         # Use the Python executable from the venv
         python_executable = r"C:\TalendInsightApp\venv\Scripts\python.exe"  # Path to your Python executable in venv
         flask_app = r"C:\TalendInsightApp\flask_service.py"  # Path to this script (flask_service.py)
 
-        # Start the Flask app using waitress (not subprocess Popen anymore)
-        # Instead of Popen, use waitress.serve to run the Flask app
-        serve(app, host='0.0.0.0', port=5000)  # Update port if needed
+        # Start the Flask app using a separate process to avoid blocking the service start
+        self.process = Popen([python_executable, flask_app])  # This launches the Flask app in the background
 
 if __name__ == "__main__":
     win32serviceutil.HandleCommandLine(FlaskService)
